@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Bot, Plus, Trash2, Save, Activity, RefreshCw } from 'lucide-react';
-import { aiOrchestrator } from '../../../services/aiOrchestrator';
+import { aiOrchestrator } from '../../../../services/aiOrchestrator';
 import { AIModel, AISystemConfig } from '../../../types';
 
 export const AiZone: React.FC = () => {
