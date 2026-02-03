@@ -6,11 +6,11 @@ import { ref, get } from "firebase/database";
 import { storage } from "../utils/storage";
 
 // GROQ API CALL HELPER
-export const callGroqApi = async (messages: any[], model: string = "llama3-8b-8192") => {
+export const callGroqApi = async (messages: any[], model: string = "llama-3.3-70b-versatile") => {
     // Validate model (Gemini models are not supported on Groq)
     let safeModel = model;
     if (!safeModel || safeModel.includes("gemini")) {
-        console.warn(`Invalid Groq model requested: ${safeModel}. Falling back to llama3-8b-8192.`);
+        console.warn(`Invalid Groq model requested: ${safeModel}. Falling back to llama-3.3-70b-versatile.`);
         safeModel = "llama-3.1-8b-instant";
     }
 
@@ -60,7 +60,7 @@ export const callGroqApiWithTools = async (messages: any[], tools: any[], model:
 };
 
 // STREAMING API CALL
-export const callGroqApiStream = async (messages: any[], onChunk: (text: string) => void, model: string = "llama3-8b-8192") => {
+export const callGroqApiStream = async (messages: any[], onChunk: (text: string) => void, model: string = "llama-3.3-70b-versatile") => {
     let safeModel = model;
     if (!safeModel || safeModel.includes("gemini")) safeModel = "llama-3.1-8b-instant";
 
